@@ -108,18 +108,6 @@ export default {
           isCompleted: false,
           type: "business",
         },
-        {
-          _id: "2",
-          name: "Make beautiful design app",
-          isCompleted: false,
-          type: "personal",
-        },
-        {
-          _id: "3",
-          name: "Make beautiful design app again",
-          isCompleted: false,
-          type: "business",
-        },
       ],
     };
   },
