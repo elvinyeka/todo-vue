@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap");
+$main-bg-color: #292832;
+$main-accent-color: #7e41ea;
+$orange-color: #e55a3c;
+$trash-color: #6f1e51;
+$form-control-color: rebeccapurple;
+
+body {
+  font-family: "Inria Sans", sans-serif;
+  background-color: $main-bg-color;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.round {
+  position: relative;
+  margin-right: 20px;
+  label {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    left: 0;
+    position: absolute;
+    top: -5px;
+    width: 28px;
+    &:after {
+      border: 2px solid #fff;
+      border-top: none;
+      border-right: none;
+      content: "";
+      height: 6px;
+      left: 7px;
+      opacity: 0;
+      position: absolute;
+      top: 8px;
+      transform: rotate(-45deg);
+      width: 12px;
+    }
+  }
+  input[type="checkbox"] {
+    visibility: hidden;
+    &:checked + label {
+      background-color: $main-accent-color;
+      border-color: $main-accent-color;
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+  &.business input[type="checkbox"]:checked + label {
+    background-color: $main-accent-color;
+    border-color: $main-accent-color;
+    &:after {
+      opacity: 1;
+    }
+  }
+  &.business input[type="checkbox"] + label {
+    border-color: $main-accent-color;
+  }
+  &.personal input[type="checkbox"]:checked + label {
+    background-color: $orange-color;
+    border-color: $orange-color;
+    &:after {
+      opacity: 1;
+    }
+  }
+  &.personal input[type="checkbox"] + label {
+    border-color: $orange-color;
+  }
+}
+.app-title {
+  color: #fff;
+  text-align: center;
+  font-size: 34px;
+  font-weight: 400;
+  padding: 0;
+}
+
+.tasks {
+  margin-bottom: 200px;
+}
+.task {
+  display: flex;
+  align-items: center;
+  // margin: 10px auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    span.completed {
+      text-decoration: line-through;
+    }
+    .remove-task {
+      color: $trash-color;
+      font-size: 24px;
+      font-weight: bold;
+      margin-right: 10px;
+      padding-top: 5px;
+      border: transparent;
+      background-color: transparent;
+      cursor: pointer;
+      opacity: 0.3;
+      transition: 0.4s ease-in-out;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  &-add {
+    position: fixed;
+    z-index: 1;
+    bottom: 20px;
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    &-inputs {
+      width: 100%;
+    }
+    &-input[type="text"] {
+      width: 89%;
+      border-radius: 20px;
+      padding: 15px;
+      line-height: 22px;
+      font-size: 18px;
+      border: none;
+      outline: none;
+    }
+    &-btn {
+      background-color: $main-accent-color;
+      font-size: 34px;
+      color: #fff;
+      border: 1px solid $main-accent-color;
+      border-radius: 50%;
+      margin-left: 20px;
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+.radio-buttons {
+  width: 94%;
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+.form-control {
+  font-family: system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+}
+
+.form-control {
+  color: #fff;
+}
+
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 16px 1em $main-accent-color;
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="radio"]:focus {
+  outline: max(2px, 2.4px) solid currentColor;
+  outline-offset: max(2px, 2.4px);
+}
+
+.wrapper-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .stat {
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    h5 {
+      font-size: 20px;
+      margin: 0;
+      text-align: center;
+    }
+  }
+  .wrapper-pogress {
+    margin-top: 15px;
+    border-radius: 3px;
+    width: 100%;
+    height: 8px;
+    background-color: #fff;
+    overflow: hidden;
+    .bar {
+      width: 100%;
+      height: 8px;
+      background-color: #fff;
+      transition: width 0.5s ease-in-out;
+      &.business {
+        background-color: $main-accent-color;
+      }
+      &.personal {
+        background-color: $orange-color;
+      }
+    }
+  }
+}
