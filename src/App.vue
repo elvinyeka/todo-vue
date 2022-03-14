@@ -35,9 +35,9 @@
             <input
               type="radio"
               name="radio"
-              checked
               value="business"
               v-model="picked"
+              checked
             />
             Business
           </label>
@@ -100,7 +100,7 @@ export default {
   data() {
     return {
       taskName: "",
-      picked: "",
+      picked: "business",
       tasks: [
         {
           _id: "1",
